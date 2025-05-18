@@ -2,26 +2,26 @@ import os
 from dotenv import load_dotenv
 from fetch_movies import fetch_movies_data, fetch_genres
 
-# Tải biến môi trường
+# Load env
 load_dotenv()
 
-# Lấy API_KEY từ biến môi trường
+# Get API_KEY from environment variables
 API_KEY = os.getenv("API_KEY")
 
-# Path lưu dữ liệu
+# Path to saved
 path_to_save = "./data"
 
 def main():
-    # Kiểm tra folder, nếu chưa tồn tại thì tạo mới
+    # Check folder, if not exists then create
     if os.path.exists(path_to_save):
         pass
     else:
         os.makedirs(path_to_save)
 
-    # Gọi hàm fetch_movies_data để lấy dữ liệu phim 
+    # Get movies data
     fetch_movies_data(f"{path_to_save}/movies.csv", 500, 1, api_key=API_KEY)
 
-    # Gọi hàm fetch_movies_data để lấy dữ liệu thể loại 
+    # Get genres data
     fetch_genres("data/genres.csv", api_key=API_KEY)
 
 

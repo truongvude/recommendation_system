@@ -3,6 +3,14 @@ import requests
 import time
 
 def fetch_movies_data(path_to_save, end_page, start_page=1, api_key=None):
+    """
+    Fetch movies data from TMDB API \n
+    :param path_to_save: location to save movies data
+    :param end_page: last page to fetch data
+    :param start_page: first page to get_data
+    :api_key: credentials
+    :return: fetched data is saved to path_to_save
+    """
     for page in range(start_page, end_page+1):
         time.sleep(1)
         url = f"https://api.themoviedb.org/3/movie/top_rated?api_key={api_key}&language=en-US&page={page}"
@@ -29,6 +37,13 @@ def fetch_movies_data(path_to_save, end_page, start_page=1, api_key=None):
             print(f"Failed to fetch page {page}: {e}")
 
 def fetch_genres(path_to_save, language="en", api_key=None):
+    """
+    Fetch genres data from TMDB API \n
+    :param path_to_save: location to save genres data
+    :param language: language of genres (default: en)
+    :api_key: credentials
+    :return: fetched genres data is saved to path_to_save
+    """
     url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={api_key}&language={language}"
     response = requests.get(url)
     data = response.json()
