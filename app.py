@@ -2,10 +2,9 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 import pickle
-import pandas as pd
 
-movies = pd.read_csv("data/movies_converted.csv")
-similarity = pickle.load(open("similarity.pkl", "rb"))
+movies = pickle.load(open("data/movies_list.pkl", "rb"))
+similarity = pickle.load(open("data/similarity.pkl", "rb"))
 movies_list = movies["title"]
 
 # Load environment variable
