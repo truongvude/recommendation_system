@@ -54,12 +54,12 @@ nano .env   # Or use any text editor of your choice
 ### 1. Run `main.py`
 
 ```bash
-python3 main.py
+python3 src/main.py
 ```
 
 ### 2. Run app.py with Streamlit
 ```bash
-streamlit run app.py
+streamlit run src/app.py
 ```
 
 ## Contributing
